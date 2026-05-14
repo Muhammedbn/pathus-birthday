@@ -8,14 +8,14 @@
 <!-- WhatsApp & Social Media Preview -->
 <meta property="og:title" content="Happy Birthday Mutheeee ❤️" />
 <meta property="og:description" content="A small surprise made with love by Muhammed 🥹✨" />
-<meta property="og:image" content="https://muhammedbn.github.io/pathus-birthday/preview.jpg" />
+<meta property="og:image" content="https://muhammedbn.github.io/pathus-birthday/public/preview.jpg" />
 <meta property="og:url" content="https://muhammedbn.github.io/pathus-birthday/" />
 <meta property="og:type" content="website" />
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Happy Birthday Mutheeee ❤️" />
 <meta name="twitter:description" content="A surprise made with love 💖" />
-<meta name="twitter:image" content="https://muhammedbn.github.io/pathus-birthday/preview.jpg" />
+<meta name="twitter:image" content="https://muhammedbn.github.io/pathus-birthday/public/preview.jpg" />
 
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💖</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
@@ -138,12 +138,12 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--deep);font-fam
   <div class="layer hidden" id="L2">
     <h2 style="font-family:'Great Vibes',cursive;font-size:3rem;color:var(--rose2);margin-bottom:1.5rem;">Beautiful Memories</h2>
     <div class="pgrid">
-      <div class="pcard loaded"><div class="up" style="display:none">🌸<br>ADD PHOTO</div><img src="assets/p1.jpg" style="display:block"></div>
-      <div class="pcard loaded"><div class="up" style="display:none">💕<br>ADD PHOTO</div><img src="assets/p2.jpg" style="display:block"></div>
-      <div class="pcard loaded"><div class="up" style="display:none">🌺<br>ADD PHOTO</div><img src="assets/p3.jpg" style="display:block"></div>
-      <div class="pcard loaded"><div class="up" style="display:none">✨<br>ADD PHOTO</div><img src="assets/p4.jpg" style="display:block"></div>
-      <div class="pcard loaded"><div class="up" style="display:none">🌙<br>ADD PHOTO</div><img src="assets/p5.jpg" style="display:block"></div>
-      <div class="pcard loaded"><div class="up" style="display:none">🦋</div><img src="assets/p6.jpg" style="display:block"></div>
+      <div class="pcard loaded"><div class="up" style="display:none">🌸<br>ADD PHOTO</div><img src="public/assets/p1.jpg" style="display:block"></div>
+      <div class="pcard loaded"><div class="up" style="display:none">💕<br>ADD PHOTO</div><img src="public/assets/p2.jpg" style="display:block"></div>
+      <div class="pcard loaded"><div class="up" style="display:none">🌺<br>ADD PHOTO</div><img src="public/assets/p3.jpg" style="display:block"></div>
+      <div class="pcard loaded"><div class="up" style="display:none">✨<br>ADD PHOTO</div><img src="public/assets/p4.jpg" style="display:block"></div>
+      <div class="pcard loaded"><div class="up" style="display:none">🌙<br>ADD PHOTO</div><img src="public/assets/p5.jpg" style="display:block"></div>
+      <div class="pcard loaded"><div class="up" style="display:none">🦋</div><img src="public/assets/p6.jpg" style="display:block"></div>
     </div>
   </div>
 
@@ -205,10 +205,11 @@ html,body{width:100%;height:100%;overflow:hidden;background:var(--deep);font-fam
     <p class="fquote">"Every love story is beautiful, but ours is my favourite. Happy Birthday, my darling wife. You are my forever and always, my everything."</p>
     <div class="fsig">— With endless love, Muhammed 💍</div>
     <div class="frose">🌹</div>
+    <button onclick="restart(event)" style="margin-top:2rem;padding:0.8rem 2rem;border-radius:30px;background:transparent;color:var(--gold);border:1px solid var(--gold);font-family:'Cinzel';font-size:0.8rem;letter-spacing:2px;cursor:pointer;transition:0.3s;z-index:20;">BACK TO START</button>
   </div>
 </div>
 
-  <audio id="player" loop><source src="assets/WhatsApp%20Image%202026-05-10%20at%2012.26.24.mp3" type="audio/mpeg"></audio>
+  <audio id="player" loop><source src="public/assets/WhatsApp%20Image%202026-05-10%20at%2012.26.24.mp3" type="audio/mpeg"></audio>
 
 <script>
 const cvs=document.getElementById('cvs'),ctx=cvs.getContext('2d');
@@ -249,6 +250,19 @@ function go(){
   },800);
 }
 document.getElementById('stage').addEventListener('click',go);
+
+function restart(e){
+  if(e) e.stopPropagation();
+  cur=0; busy=false;
+  layers.forEach((id,i)=>{
+    const el=document.getElementById(id);
+    el.classList.remove('active','hidden');
+    el.classList.add(i===0?'active':'hidden');
+    el.style.transform=''; el.style.opacity='';
+  });
+  document.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('on',i===0));
+  document.getElementById('hint').style.display='flex';
+}
 
 // Logic
 
