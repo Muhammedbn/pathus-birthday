@@ -7,7 +7,7 @@ const MusicPlayer = () => {
   const audioRef = useRef(null);
 
   // Using a royalty-free soft ambient birthday track link
-  const audioUrl = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"; // Placeholder
+  const audioUrl = "/Users/muhammedbn/Desktop/pathuss birthday/public/assets/WhatsApp Image 2026-05-10 at 12.26.24.mp3"; // Placeholder
 
   const togglePlay = () => {
     if (isPlaying) {
